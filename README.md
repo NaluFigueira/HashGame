@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center">
-  Hash Game Web App with React.
+  Hash Game Web App with React
 </h4>
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/NaluFigueira/HashGame.svg">
@@ -65,6 +65,7 @@ This project is under the MIT license. See the [LICENSE](https://github.com/Nalu
 Made with ♥ by Ana Figueira :wave: [Get in touch!](https://www.linkedin.com/in/ana-lu%C3%ADsa-chaves-figueira-38792218a/)
 
 [yarn]: https://yarnpkg.com/
+[nodejs]: https://nodejs.org/
 [vc]: https://code.visualstudio.com/
 [vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
 [vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
