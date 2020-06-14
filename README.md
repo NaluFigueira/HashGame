@@ -1,44 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+    Hash Game
+</h1>
 
-## Available Scripts
+<h4 align="center">
+  Hash Game Web App with React.
+</h4>
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/NaluFigueira/HashGame.svg">
 
-In the project directory, you can run:
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/NaluFigueira/HashGame.svg">
 
-### `yarn start`
+  <a href="https://www.codacy.com/app/NaluFigueira/HashGame?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=NaluFigueira/HashGame&amp;utm_campaign=Badge_Grade">
+    <img alt="Codacy grade" src="https://img.shields.io/codacy/grade/1b577a07dda843aba09f4bc55d1af8fc.svg">
+  </a>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/NaluFigueira/HashGame.svg">
+  <a href="https://github.com/NaluFigueira/HashGame/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/NaluFigueira/HashGame.svg">
+  </a>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  <a href="https://github.com/NaluFigueira/HashGame/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/NaluFigueira/HashGame.svg">
+  </a>
 
-### `yarn test`
+  <img alt="GitHub" src="https://img.shields.io/github/license/NaluFigueira/HashGame.svg">
+</p>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="center">
+  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">License</a>
+</p>
 
-### `yarn build`
+## :rocket: Technologies
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was developed with the following technologies:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+-  [ReactJS](https://reactjs.org/)
+-  [VS Code][vc] with [EditorConfig][vceditconfig], [ESLint][vceslint] and [Prettier][prettier]
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :information_source: How To Use
 
-### `yarn eject`
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v12.16.2][nodejs] or higher + [Yarn v1.19][yarn] or higher installed on your computer. From your command line:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+# Clone this repository
+$ git clone https://github.com/NaluFigueira/HashGame
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Go into the repository
+$ cd HashGame
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Install dependencies
+$ yarn
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Run the app
+$ yarn start
+```
 
-## Learn More
+## :memo: License
+This project is under the MIT license. See the [LICENSE](https://github.com/NaluFigueira/HashGame/blob/master/LICENSE) for more information.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Made with ♥ by Ana Figueira :wave: [Get in touch!](https://www.linkedin.com/in/ana-lu%C3%ADsa-chaves-figueira-38792218a/)
+
+[yarn]: https://yarnpkg.com/
+[vc]: https://code.visualstudio.com/
+[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+[prettier]: https://marketplace.visualstudio.com/items?itemName=SimonSiefke.prettier-vscode
