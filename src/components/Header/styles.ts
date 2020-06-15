@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { darken } from 'polished';
+import { SelectedSectionProps } from './types';
 
 export const Container = styled.div`
   width: 100%;
@@ -14,19 +15,24 @@ export const Container = styled.div`
     & + li {
       margin-right: 8px;
     }
+  }
+`;
 
-    li {
-      padding: 24px;
-      transition: background-color 0.2s;
-
-      strong {
-        text-transform: uppercase;
-      }
-    }
-
-    li:hover {
-      cursor: pointer;
+export const SelectedSection = styled.li<SelectedSectionProps>`
+  padding: 24px;
+  transition: background-color 0.2s;
+  ${(props) =>
+    props.selected &&
+    css`
       background-color: ${darken(0.3, '#e8e3f4')};
-    }
+    `}
+
+  strong {
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${darken(0.3, '#e8e3f4')};
   }
 `;

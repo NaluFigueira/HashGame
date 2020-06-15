@@ -1,17 +1,27 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, SelectedSection } from './styles';
+import { HeaderProps } from './types';
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({
+  selectedSection,
+  onSelectSection,
+}) => {
   return (
     <Container>
       <ul>
-        <li>
+        <SelectedSection
+          selected={selectedSection === 'JOGO'}
+          onClick={() => onSelectSection('JOGO')}
+        >
           <strong>Jogo</strong>
-        </li>
-        <li>
+        </SelectedSection>
+        <SelectedSection
+          selected={selectedSection === 'HISTÓRICO'}
+          onClick={() => onSelectSection('HISTÓRICO')}
+        >
           <strong>Histórico</strong>
-        </li>
+        </SelectedSection>
       </ul>
     </Container>
   );
