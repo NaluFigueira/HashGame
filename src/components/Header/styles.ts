@@ -21,6 +21,8 @@ export const Container = styled.div`
 export const SelectedSection = styled.li<SelectedSectionProps>`
   padding: 24px;
   transition: background-color 0.2s;
+  text-align: center;
+
   ${(props) =>
     props.selected &&
     css`

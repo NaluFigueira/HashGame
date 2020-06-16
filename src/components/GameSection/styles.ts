@@ -4,8 +4,51 @@ import { darken } from 'polished';
 export const Container = styled.div`
   height: 80vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const GameMenu = styled.div`
+  width: 45vw;
+  margin-bottom: 15px;
+  margin-right: 20px;
+
+  div {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    select {
+      margin-right: 16px;
+      padding: 10px;
+      background: transparent;
+      border: 2px solid #e8e3f4;
+      color: #fff;
+
+      option {
+        background-color: #8162cc;
+        color: #fff;
+      }
+    }
+  }
+`;
+
+export const Restart = styled.div`
+  padding: 12px;
+  transition: background-color 0.2s;
+  text-align: center;
+
+  strong {
+    margin-left: 5px;
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${darken(0.3, '#e8e3f4')};
+  }
 `;
 
 export const HashGrid = styled.div`
@@ -52,12 +95,12 @@ export const HashGrid = styled.div`
 
 export const HashCell = styled.div`
   height: 20vh;
+  width: 15vw;
   border: 2px solid #e8e3f4;
   transition: background-color 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
 
   &:hover {
     cursor: pointer;

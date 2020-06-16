@@ -9,7 +9,3 @@ export enum GameMode {
   ComputadorVSHumano,
   HumanoVSComputador,
 }
-
-export interface GameSectionProps {
-  mode: GameMode;
-}

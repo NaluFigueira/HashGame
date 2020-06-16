@@ -1,12 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { FiCircle } from 'react-icons/fi';
+import { FaUndo } from 'react-icons/fa';
 
-import { Container, HashGrid, HashCell } from './styles';
-import { CellContentType, GameSectionProps, GameMode } from './types';
+import { Container, HashGrid, HashCell, GameMenu, Restart } from './styles';
+import { CellContentType, GameMode } from './types';
 
 const { EMPTY, CIRCLE, X } = CellContentType;
-const { HumanoVSHumano, ComputadorVSHumano } = GameMode;
+const { HumanoVSHumano, ComputadorVSHumano, HumanoVSComputador } = GameMode;
 const possibleCombinations = [
   [0, 1, 2],
   [3, 4, 5],
@@ -18,20 +20,17 @@ const possibleCombinations = [
   [2, 4, 6],
 ];
 
-const GameSection: React.FC<GameSectionProps> = ({ mode }) => {
+const GameSection: React.FC = () => {
+  const [mode, setMode] = useState<GameMode>(HumanoVSHumano);
   const [currentPlayer, setCurrentPlayer] = useState<number>(CIRCLE);
   const [cells, setCells] = useState<Array<CellContentType>>(
     new Array(9).fill(EMPTY),
   );
 
-  useEffect(() => {
-    if (mode === ComputadorVSHumano) {
-      const initialCells = new Array(9).fill(EMPTY);
-      const randomIndex = Math.round(Math.random() * 8);
-      initialCells[randomIndex] = currentPlayer;
-      setCells(initialCells);
-    }
-  }, []);
+  const restart = () => {
+    setCurrentPlayer(CIRCLE);
+    setCells(new Array(9).fill(EMPTY));
+  };
 
   const checkIfPlayerWon = (): boolean => {
     let playerWon = true;
@@ -40,13 +39,7 @@ const GameSection: React.FC<GameSectionProps> = ({ mode }) => {
       combination.forEach((cellIndex) => {
         if (cells[cellIndex] !== currentPlayer) playerWon = false;
       });
-      if (playerWon) return true;
-      if (mode !== HumanoVSHumano) {
-        playerWon = true;
-        combination.forEach((cellIndex) => {
-          if (cells[cellIndex] !== (mode as number)) playerWon = false;
-        });
-      }
+
       return playerWon;
     });
     return playerWon;
@@ -54,8 +47,13 @@ const GameSection: React.FC<GameSectionProps> = ({ mode }) => {
 
   useEffect(() => {
     if (cells.includes(CIRCLE) || cells.includes(X)) {
-      if (checkIfPlayerWon()) alert('GANHOU');
-      else setCurrentPlayer(currentPlayer === CIRCLE ? X : CIRCLE);
+      if (checkIfPlayerWon()) {
+        alert('GANHOU');
+        setCurrentPlayer(EMPTY);
+      } else if (!cells.includes(EMPTY)) {
+        alert('EMPATE');
+        setCurrentPlayer(EMPTY);
+      } else setCurrentPlayer(currentPlayer === CIRCLE ? X : CIRCLE);
     }
   }, [cells]);
 
@@ -75,13 +73,38 @@ const GameSection: React.FC<GameSectionProps> = ({ mode }) => {
   };
 
   useEffect(() => {
-    if (mode !== HumanoVSHumano && currentPlayer === (mode as number)) {
+    if (currentPlayer === EMPTY) {
+      restart();
+    }
+    if (mode !== HumanoVSHumano && currentPlayer === mode) {
       handleSelectCell(chooseRandomCell());
     }
   }, [currentPlayer]);
 
+  const handleChangeMode = (selectedMode: number) => {
+    setCurrentPlayer(EMPTY);
+    setMode(selectedMode);
+  };
+
   return (
     <Container>
+      <GameMenu>
+        <div>
+          <select
+            defaultValue={HumanoVSHumano}
+            onChange={(event) => handleChangeMode(Number(event.target.value))}
+          >
+            <option value={HumanoVSHumano}>HUMANO VS HUMANO</option>
+            <option value={ComputadorVSHumano}>COMPUTADOR VS HUMANO</option>
+            <option value={HumanoVSComputador}>HUMANO VS COMPUTADOR</option>
+          </select>
+
+          <Restart onClick={() => restart()}>
+            <FaUndo size={16} color="white" />
+            <strong>REINICIAR</strong>
+          </Restart>
+        </div>
+      </GameMenu>
       <HashGrid>
         {cells.map((cell, index) => (
           <HashCell key={index} onClick={() => handleSelectCell(index)}>

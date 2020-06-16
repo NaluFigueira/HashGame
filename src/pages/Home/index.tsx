@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header';
 import GameSection from '../../components/GameSection';
-import { GameMode } from '../../components/GameSection/types';
 import HistorySection from '../../components/HistorySection';
 
 const Home: React.FC = () => {
@@ -13,11 +12,7 @@ const Home: React.FC = () => {
         onSelectSection={setSelectedSection}
         selectedSection={selectedSection}
       />
-      {selectedSection === 'JOGO' ? (
-        <GameSection mode={GameMode.HumanoVSComputador} />
-      ) : (
-        <HistorySection />
-      )}
+      {selectedSection === 'JOGO' ? <GameSection /> : <HistorySection />}
     </>
   );
 };
