@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { darken } from 'polished';
 
 export default createGlobalStyle`
 	*{
@@ -25,5 +26,22 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${darken(0.1, '#e8e3f4')};
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e8e3f4;
   }
 `;

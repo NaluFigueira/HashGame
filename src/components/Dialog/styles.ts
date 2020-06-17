@@ -49,16 +49,4 @@ export const DialogContainer = styled.div`
       left: 25%;
     }
   }
-
-  @-webkit-keyframes slideOut {
-    100% {
-      left: 0;
-    }
-  }
-
-  @keyframes slideOut {
-    100% {
-      left: 0;
-    }
-  }
 `;

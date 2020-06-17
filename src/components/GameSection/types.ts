@@ -11,7 +11,7 @@ export enum GameMode {
 }
 
 export interface Round {
-  date: Date;
+  date: string;
   gameMode: GameMode;
   winner: string;
 }

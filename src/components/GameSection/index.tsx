@@ -4,6 +4,7 @@ import { IoMdClose } from 'react-icons/io';
 import { FiCircle } from 'react-icons/fi';
 import { FaUndo } from 'react-icons/fa';
 
+import { format } from 'date-fns';
 import { Container, HashGrid, HashCell, GameMenu, Restart } from './styles';
 import { CellContentType, GameMode, Round } from './types';
 import Dialog from '../Dialog';
@@ -67,16 +68,21 @@ const GameSection: React.FC = () => {
 
   const saveRoundInStorage = useCallback(
     (isTie = false) => {
-      const storageRounds: string | null = localStorage.getItem('rounds');
+      const storageRounds: string | null = localStorage.getItem(
+        '@HashGame:rounds',
+      );
       const rounds: Array<Round> = storageRounds
         ? JSON.parse(storageRounds)
         : [];
       const newRound: Round = {
-        date: new Date(),
+        date: format(new Date(), 'dd/MM - HH:mm:ss'),
         gameMode: mode,
         winner: getWinner(isTie),
       };
-      localStorage.setItem('rounds', JSON.stringify([...rounds, newRound]));
+      localStorage.setItem(
+        '@HashGame:rounds',
+        JSON.stringify([...rounds, newRound]),
+      );
     },
     [getWinner, mode],
   );
