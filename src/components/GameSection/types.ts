@@ -9,3 +9,9 @@ export enum GameMode {
   ComputadorVSHumano,
   HumanoVSComputador,
 }
+
+export interface Round {
+  date: Date;
+  gameMode: GameMode;
+  winner: string;
+}
