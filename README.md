@@ -22,8 +22,6 @@
   <a href="https://github.com/NaluFigueira/HashGame/issues">
     <img alt="Repository issues" src="https://img.shields.io/github/issues/NaluFigueira/HashGame.svg">
   </a>
-
-  <img alt="GitHub" src="https://img.shields.io/github/license/NaluFigueira/HashGame.svg">
 </p>
 
 <p align="center">
@@ -70,9 +68,6 @@ $ yarn
 # Run the app
 $ yarn start
 ```
-
-## :memo: License
-This project is under the MIT license. See the [LICENSE](https://github.com/NaluFigueira/HashGame/blob/master/LICENSE) for more information.
 
 ---
 
