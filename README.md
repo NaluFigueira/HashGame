@@ -39,6 +39,9 @@ This project was developed with the following technologies:
 -  [ReactJS](https://reactjs.org/)
 -  [TypeScript](https://www.typescriptlang.org/)
 -  [styled-components](https://styled-components.com/)
+-  [date-fns](https://date-fns.org/)
+-  [polished](https://polished.js.org/)
+-  [react-icons](https://react-icons.github.io/react-icons/)
 -  [VS Code][vc] with [EditorConfig][vceditconfig], [ESLint][vceslint] and [Prettier][prettier]
 
 ## :information_source: How To Use
