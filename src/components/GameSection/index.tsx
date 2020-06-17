@@ -6,6 +6,7 @@ import { FaUndo } from 'react-icons/fa';
 
 import { Container, HashGrid, HashCell, GameMenu, Restart } from './styles';
 import { CellContentType, GameMode } from './types';
+import Dialog from '../Dialog';
 
 const { EMPTY, CIRCLE, X } = CellContentType;
 const { HumanoVSHumano, ComputadorVSHumano, HumanoVSComputador } = GameMode;
@@ -22,6 +23,7 @@ const possibleCombinations = [
 
 const GameSection: React.FC = () => {
   const [mode, setMode] = useState<GameMode>(HumanoVSHumano);
+  const [roundResult, setRoundResult] = useState<string>('');
   const [currentPlayer, setCurrentPlayer] = useState<number>(CIRCLE);
   const [cells, setCells] = useState<Array<CellContentType>>(
     new Array(9).fill(EMPTY),
@@ -45,13 +47,19 @@ const GameSection: React.FC = () => {
     return playerWon;
   };
 
+  const generateResultMessage = (isTie = false): string => {
+    if (isTie) return 'EMPATE!';
+    if (mode === HumanoVSHumano) return `PLAYER ${currentPlayer} GANHOU!`;
+    return currentPlayer === mode ? 'VOCÊ PERDEU!' : 'VOCÊ GANHOU!';
+  };
+
   useEffect(() => {
     if (cells.includes(CIRCLE) || cells.includes(X)) {
       if (checkIfPlayerWon()) {
-        alert('GANHOU');
+        setRoundResult(generateResultMessage());
         setCurrentPlayer(EMPTY);
       } else if (!cells.includes(EMPTY)) {
-        alert('EMPATE');
+        setRoundResult(generateResultMessage(true));
         setCurrentPlayer(EMPTY);
       } else setCurrentPlayer(currentPlayer === CIRCLE ? X : CIRCLE);
     }
@@ -87,33 +95,40 @@ const GameSection: React.FC = () => {
   };
 
   return (
-    <Container>
-      <GameMenu>
-        <div>
-          <select
-            defaultValue={HumanoVSHumano}
-            onChange={(event) => handleChangeMode(Number(event.target.value))}
-          >
-            <option value={HumanoVSHumano}>HUMANO VS HUMANO</option>
-            <option value={ComputadorVSHumano}>COMPUTADOR VS HUMANO</option>
-            <option value={HumanoVSComputador}>HUMANO VS COMPUTADOR</option>
-          </select>
+    <>
+      <Dialog
+        open={roundResult !== ''}
+        message={roundResult}
+        onClose={() => setRoundResult('')}
+      />
+      <Container>
+        <GameMenu>
+          <div>
+            <select
+              defaultValue={HumanoVSHumano}
+              onChange={(event) => handleChangeMode(Number(event.target.value))}
+            >
+              <option value={HumanoVSHumano}>HUMANO VS HUMANO</option>
+              <option value={ComputadorVSHumano}>COMPUTADOR VS HUMANO</option>
+              <option value={HumanoVSComputador}>HUMANO VS COMPUTADOR</option>
+            </select>
 
-          <Restart onClick={() => restart()}>
-            <FaUndo size={16} color="white" />
-            <strong>REINICIAR</strong>
-          </Restart>
-        </div>
-      </GameMenu>
-      <HashGrid>
-        {cells.map((cell, index) => (
-          <HashCell key={index} onClick={() => handleSelectCell(index)}>
-            {cell === CIRCLE && <FiCircle size={64} color="white" />}
-            {cell === X && <IoMdClose size={80} color="white" />}
-          </HashCell>
-        ))}
-      </HashGrid>
-    </Container>
+            <Restart onClick={() => restart()}>
+              <FaUndo size={16} color="white" />
+              <strong>REINICIAR</strong>
+            </Restart>
+          </div>
+        </GameMenu>
+        <HashGrid>
+          {cells.map((cell, index) => (
+            <HashCell key={index} onClick={() => handleSelectCell(index)}>
+              {cell === CIRCLE && <FiCircle size={64} color="white" />}
+              {cell === X && <IoMdClose size={80} color="white" />}
+            </HashCell>
+          ))}
+        </HashGrid>
+      </Container>
+    </>
   );
 };
 

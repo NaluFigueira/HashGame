@@ -10,18 +10,17 @@ export const Container = styled.div`
 `;
 
 export const GameMenu = styled.div`
-  width: 45vw;
+  width: 100%;
   margin-bottom: 15px;
-  margin-right: 20px;
 
   div {
     list-style: none;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     select {
-      margin-right: 16px;
       padding: 10px;
       background: transparent;
       border: 2px solid #e8e3f4;
@@ -39,6 +38,7 @@ export const Restart = styled.div`
   padding: 12px;
   transition: background-color 0.2s;
   text-align: center;
+  flex-direction: row !important;
 
   strong {
     margin-left: 5px;
@@ -55,7 +55,7 @@ export const HashGrid = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   align-self: center;
-  width: 45vw;
+  width: 90vw;
   > div:nth-child(1) {
     border-top-width: 0px;
     border-left-width: 0px;
@@ -95,7 +95,7 @@ export const HashGrid = styled.div`
 
 export const HashCell = styled.div`
   height: 20vh;
-  width: 15vw;
+  width: 30vw;
   border: 2px solid #e8e3f4;
   transition: background-color 0.2s;
   display: flex;
@@ -105,5 +105,16 @@ export const HashCell = styled.div`
   &:hover {
     cursor: pointer;
     background-color: ${darken(0.3, '#e8e3f4')};
+  }
+
+  svg {
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+
+    @keyframes fadeIn {
+      100% {
+        opacity: 1;
+      }
+    }
   }
 `;
