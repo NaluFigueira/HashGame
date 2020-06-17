@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center">
-  Hash Game Web App with React
+  Hash Game with ReactJS
 </h4>
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/NaluFigueira/HashGame.svg">
@@ -31,6 +31,15 @@
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </p>
+
+![App Preview](https://github.com/NaluFigueira/HashGame/blob/master/Preview.gif)
+
+## :bulb:	Main Features
+
+This project includes mainly the following features:
+
+- Play the hash game in one of theses modes: player vs player, player vs machine (player is O and machine is X) or machine vs player (machine is O and player is X).
+- Check recent matches in the history section.
 
 ## :rocket: Technologies
 
